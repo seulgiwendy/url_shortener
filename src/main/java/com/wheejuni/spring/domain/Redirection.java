@@ -33,5 +33,13 @@ public class Redirection {
 		this.originalUrl = originalUrl;
 	}
 	
+	public void setMappedUrl(String mappedUrl) {
+		this.mappedUrl = mappedUrl;
+	}
+	
+	public void setOriginalUrl(String originalUrl) {
+		this.originalUrl = originalUrl;
+	}
+	
 	
 }
