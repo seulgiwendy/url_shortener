@@ -27,13 +27,13 @@ public class DynamoDBConfig {
 
 	@SuppressWarnings("deprecation")
 	@Bean
-	public AmazonDynamoDB dynamoDb() {
-		AmazonDynamoDB dynamoDb = new AmazonDynamoDBClient(amazonAWSCredentials());
+	public AmazonDynamoDB amazonDynamoDB() {
+		AmazonDynamoDB amazonDynamoDB = new AmazonDynamoDBClient(amazonAWSCredentials());
 		if (!StringUtils.isEmpty(DynamoDBEndpoint)) {
-			dynamoDb.setEndpoint(DynamoDBEndpoint);
+			amazonDynamoDB.setEndpoint(DynamoDBEndpoint);
 		}
 
-		return dynamoDb;
+		return amazonDynamoDB;
 	}
 
 	@Bean
