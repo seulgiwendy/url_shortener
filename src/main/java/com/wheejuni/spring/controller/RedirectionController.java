@@ -10,16 +10,19 @@ import com.wheejuni.spring.repositories.RedirectionRepository;
 
 @Controller
 public class RedirectionController {
-	
+
 	@Autowired
 	RedirectionRepository redirectionRepo;
-	
+
 	@GetMapping("/{mappedUrl}")
 	public String getRedirectionRequest(@PathVariable String mappedUrl) {
 		Redirection requestedRedirection = redirectionRepo.findByMappedUrl(mappedUrl);
+
+		if (requestedRedirection == null) {
+			return "redirect/error";
+		}
+
 		return requestedRedirection.redirect();
 	}
-	
-	
 
 }
