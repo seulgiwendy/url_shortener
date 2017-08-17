@@ -8,6 +8,8 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 @DynamoDBTable(tableName = "redirections")
 public class Redirection {
 	
+	private static final String REDIRECT_HEADER = "redirect:";
+	
 	private String uniqueid;
 	private String mappedUrl;
 	private String originalUrl;
@@ -40,6 +42,11 @@ public class Redirection {
 	
 	public void setOriginalUrl(String originalUrl) {
 		this.originalUrl = originalUrl;
+	}
+	
+	public String redirect() {
+		
+		return REDIRECT_HEADER + this.originalUrl;
 	}
 	
 	
